@@ -18,15 +18,26 @@ public class MainController implements Initializable {
     @FXML private Label   lblNbCours;
     @FXML private Label   lblNbNotes;
 
+    @FXML private EtudiantController etudiantViewController;
+    @FXML private CoursController    coursViewController;
+    @FXML private NoteController     noteViewController;
+
     private final EtudiantDAO etudiantDAO = new EtudiantDAO();
     private final CoursDAO    coursDAO    = new CoursDAO();
     private final NoteDAO     noteDAO     = new NoteDAO();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        etudiantViewController.setOnDataChanged(this::refreshStats);
+        coursViewController.setOnDataChanged(this::refreshStats);
+        noteViewController.setOnDataChanged(this::refreshStats);
+
         refreshStats();
         tabPane.getSelectionModel().selectedItemProperty().addListener(
-                (obs, oldTab, newTab) -> refreshStats()
+                (obs, oldTab, newTab) -> {
+                    refreshStats();
+                    noteViewController.reloadCombos();
+                }
         );
     }
 

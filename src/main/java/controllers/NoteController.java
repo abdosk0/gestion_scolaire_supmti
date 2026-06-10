@@ -33,6 +33,7 @@ public class NoteController implements Initializable {
     private final CoursDAO    coursDAO    = new CoursDAO();
 
     private final ObservableList<Note> data = FXCollections.observableArrayList();
+    private Runnable onDataChanged;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -70,8 +71,17 @@ public class NoteController implements Initializable {
                 (obs, old, sel) -> updateMoyenne(sel));
     }
 
+    public void setOnDataChanged(Runnable r) { this.onDataChanged = r; }
+
     private void loadData() {
         data.setAll(noteDAO.findAll());
+        if (onDataChanged != null) onDataChanged.run();
+    }
+
+    public void reloadCombos() {
+        cmbEtudiant.setItems(FXCollections.observableArrayList(etudiantDAO.findAll()));
+        cmbCours.setItems(FXCollections.observableArrayList(coursDAO.findAll()));
+        loadData();
     }
 
     @FXML

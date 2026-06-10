@@ -74,6 +74,10 @@
     -fx-text-fill: white;
 }
 
+.main-tab-pane .tab:selected:hover .tab-label {
+    -fx-text-fill: #1565C0;
+}
+
 .content-split {
     -fx-background-color: transparent;
     -fx-padding: 12 12 12 12;

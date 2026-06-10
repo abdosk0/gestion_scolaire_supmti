@@ -40,13 +40,13 @@
     <center>
         <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" styleClass="main-tab-pane">
             <Tab text="👤  Étudiants">
-                <fx:include source="EtudiantView.fxml"/>
+                <fx:include fx:id="etudiantView" source="EtudiantView.fxml"/>
             </Tab>
             <Tab text="📚  Cours">
-                <fx:include source="CoursView.fxml"/>
+                <fx:include fx:id="coursView" source="CoursView.fxml"/>
             </Tab>
             <Tab text="📝  Notes">
-                <fx:include source="NoteView.fxml"/>
+                <fx:include fx:id="noteView" source="NoteView.fxml"/>
             </Tab>
         </TabPane>
     </center>

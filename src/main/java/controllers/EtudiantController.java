@@ -39,6 +39,7 @@ public class EtudiantController implements Initializable {
 
     private final EtudiantDAO dao = new EtudiantDAO();
     private final ObservableList<Etudiant> data = FXCollections.observableArrayList();
+    private Runnable onDataChanged;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -60,8 +61,11 @@ public class EtudiantController implements Initializable {
         txtRecherche.textProperty().addListener((obs, old, val) -> rechercher(val));
     }
 
+    public void setOnDataChanged(Runnable r) { this.onDataChanged = r; }
+
     private void loadData() {
         data.setAll(dao.findAll());
+        if (onDataChanged != null) onDataChanged.run();
     }
 
     private void rechercher(String motCle) {
