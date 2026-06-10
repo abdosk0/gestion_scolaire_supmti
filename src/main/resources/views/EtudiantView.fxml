@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<SplitPane dividerPositions="0.62" xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="controllers.EtudiantController"
+           styleClass="content-split">
+
+    <!-- ════ GAUCHE : Tableau ════ -->
+    <VBox spacing="10" styleClass="panel-left">
+        <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Liste des étudiants" styleClass="panel-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="txtRecherche" promptText="🔍  Rechercher…" prefWidth="220"
+                       styleClass="search-field"/>
+        </HBox>
+
+        <TableView fx:id="tableEtudiants" VBox.vgrow="ALWAYS" styleClass="data-table">
+            <columns>
+                <TableColumn fx:id="colId"         text="ID"          prefWidth="50"  style="-fx-alignment:CENTER;"/>
+                <TableColumn fx:id="colNom"         text="Nom"         prefWidth="130"/>
+                <TableColumn fx:id="colPrenom"      text="Prénom"      prefWidth="130"/>
+                <TableColumn fx:id="colEmail"       text="Email"       prefWidth="200"/>
+                <TableColumn fx:id="colTel"         text="Téléphone"   prefWidth="120"/>
+                <TableColumn fx:id="colNaissance"   text="Naissance"   prefWidth="110"/>
+            </columns>
+            <placeholder>
+                <Label text="Aucun étudiant enregistré." styleClass="table-placeholder"/>
+            </placeholder>
+        </TableView>
+    </VBox>
+
+    <!-- ════ DROITE : Formulaire ════ -->
+    <ScrollPane fitToWidth="true" fitToHeight="false" styleClass="form-scroll">
+    <VBox spacing="14" styleClass="panel-right">
+        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+        <Label text="Fiche étudiant" styleClass="form-title"/>
+        <Separator/>
+
+        <Label text="Nom *" styleClass="field-label"/>
+        <TextField fx:id="txtNom" promptText="Ex: Alaoui" styleClass="form-field"/>
+
+        <Label text="Prénom *" styleClass="field-label"/>
+        <TextField fx:id="txtPrenom" promptText="Ex: Youssef" styleClass="form-field"/>
+
+        <Label text="Email *" styleClass="field-label"/>
+        <TextField fx:id="txtEmail" promptText="ex@supmti.ma" styleClass="form-field"/>
+
+        <Label text="Téléphone" styleClass="field-label"/>
+        <TextField fx:id="txtTel" promptText="0600000000" styleClass="form-field"/>
+
+        <Label text="Date de naissance" styleClass="field-label"/>
+        <DatePicker fx:id="dpNaissance" promptText="jj/mm/aaaa"
+                    styleClass="form-field" maxWidth="Infinity"/>
+
+        <Separator/>
+
+        <HBox spacing="10">
+            <Button fx:id="btnAjouter"   text="✚  Ajouter"    onAction="#handleAjouter"
+                    styleClass="btn-primary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <Button fx:id="btnModifier"  text="✎  Modifier"   onAction="#handleModifier"
+                    styleClass="btn-warning" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+        <HBox spacing="10">
+            <Button fx:id="btnSupprimer" text="✖  Supprimer"  onAction="#handleSupprimer"
+                    styleClass="btn-danger" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <Button fx:id="btnVider"     text="↺  Vider"      onAction="#handleVider"
+                    styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+
+    </VBox>
+    </ScrollPane>
+</SplitPane>

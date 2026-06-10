@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<SplitPane dividerPositions="0.62" xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="controllers.CoursController"
+           styleClass="content-split">
+
+    <!-- ════ GAUCHE : Tableau ════ -->
+    <VBox spacing="10" styleClass="panel-left">
+        <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Liste des cours" styleClass="panel-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="txtRecherche" promptText="🔍  Rechercher…" prefWidth="220"
+                       styleClass="search-field"/>
+        </HBox>
+
+        <TableView fx:id="tableCours" VBox.vgrow="ALWAYS" styleClass="data-table">
+            <columns>
+                <TableColumn fx:id="colId"          text="ID"          prefWidth="50"  style="-fx-alignment:CENTER;"/>
+                <TableColumn fx:id="colCode"         text="Code"        prefWidth="100"/>
+                <TableColumn fx:id="colIntitule"     text="Intitulé"    prefWidth="220"/>
+                <TableColumn fx:id="colDescription"  text="Description" prefWidth="250"/>
+                <TableColumn fx:id="colCoef"         text="Coef."       prefWidth="70"  style="-fx-alignment:CENTER;"/>
+            </columns>
+            <placeholder>
+                <Label text="Aucun cours enregistré." styleClass="table-placeholder"/>
+            </placeholder>
+        </TableView>
+    </VBox>
+
+    <!-- ════ DROITE : Formulaire ════ -->
+    <ScrollPane fitToWidth="true" fitToHeight="false" styleClass="form-scroll">
+    <VBox spacing="14" styleClass="panel-right">
+        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+        <Label text="Fiche cours" styleClass="form-title"/>
+        <Separator/>
+
+        <Label text="Code *" styleClass="field-label"/>
+        <TextField fx:id="txtCode" promptText="Ex: INFO102" styleClass="form-field"/>
+
+        <Label text="Intitulé *" styleClass="field-label"/>
+        <TextField fx:id="txtIntitule" promptText="Ex: Programmation Java" styleClass="form-field"/>
+
+        <Label text="Description" styleClass="field-label"/>
+        <TextArea fx:id="txtDescription" promptText="Description du cours…"
+                  prefRowCount="4" styleClass="form-field" wrapText="true"/>
+
+        <Label text="Coefficient *" styleClass="field-label"/>
+        <TextField fx:id="txtCoef" promptText="Ex: 2.5" styleClass="form-field"/>
+
+        <Separator/>
+
+        <HBox spacing="10">
+            <Button text="✚  Ajouter"   onAction="#handleAjouter"
+                    styleClass="btn-primary"   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <Button text="✎  Modifier"  onAction="#handleModifier"
+                    styleClass="btn-warning"   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+        <HBox spacing="10">
+            <Button text="✖  Supprimer" onAction="#handleSupprimer"
+                    styleClass="btn-danger"    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <Button text="↺  Vider"     onAction="#handleVider"
+                    styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+    </VBox>
+    </ScrollPane>
+</SplitPane>

@@ -1,0 +1,299 @@
+/* Gestion Scolaire – styles JavaFX */
+
+.root-pane {
+    -fx-background-color: #F5F7FA;
+}
+
+.app-header {
+    -fx-background-color: #1565C0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0, 0, 3);
+}
+
+.header-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+.header-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: rgba(255,255,255,0.75);
+}
+
+.stat-card {
+    -fx-background-color: rgba(255,255,255,0.15);
+    -fx-background-radius: 8;
+    -fx-padding: 8 18 8 18;
+    -fx-min-width: 80px;
+}
+
+.stat-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: rgba(255,255,255,0.80);
+    -fx-alignment: CENTER;
+}
+
+.stat-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+}
+
+.main-tab-pane {
+    -fx-background-color: #F5F7FA;
+    -fx-tab-min-height: 42px;
+}
+
+.main-tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #1A2340;
+}
+
+.main-tab-pane .tab {
+    -fx-background-color: transparent;
+    -fx-padding: 6 20 6 20;
+}
+
+.main-tab-pane .tab .tab-label {
+    -fx-text-fill: rgba(255,255,255,0.65);
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.main-tab-pane .tab:selected {
+    -fx-background-color: #F5F7FA;
+    -fx-background-radius: 6 6 0 0;
+}
+
+.main-tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #1565C0;
+}
+
+.main-tab-pane .tab:hover .tab-label {
+    -fx-text-fill: white;
+}
+
+.content-split {
+    -fx-background-color: transparent;
+    -fx-padding: 12 12 12 12;
+}
+
+.content-split > .split-pane-divider {
+    -fx-background-color: #DDE3ED;
+    -fx-padding: 0 1 0 1;
+}
+
+.panel-left {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 8, 0, 0, 2);
+}
+
+.panel-right {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 8, 0, 0, 2);
+}
+
+.panel-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1A2340;
+}
+
+.form-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1565C0;
+}
+
+.field-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6B7A99;
+    -fx-padding: 0 0 2 0;
+}
+
+.form-field {
+    -fx-background-color: #F5F7FA;
+    -fx-background-radius: 6;
+    -fx-border-color: #DDE3ED;
+    -fx-border-radius: 6;
+    -fx-border-width: 1.5;
+    -fx-padding: 8 10 8 10;
+    -fx-font-size: 13px;
+    -fx-text-fill: #1A2340;
+}
+
+.form-field:focused {
+    -fx-border-color: #1565C0;
+    -fx-background-color: white;
+}
+
+.form-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+
+.search-field {
+    -fx-background-color: #F0F3F8;
+    -fx-background-radius: 20;
+    -fx-border-color: transparent;
+    -fx-border-radius: 20;
+    -fx-padding: 7 14 7 14;
+    -fx-font-size: 13px;
+}
+
+.search-field:focused {
+    -fx-border-color: #1565C0;
+    -fx-border-width: 1.5;
+}
+
+.data-table {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.data-table .column-header-background {
+    -fx-background-color: #EEF2FB;
+}
+
+.data-table .column-header .label {
+    -fx-text-fill: #1565C0;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.data-table .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #F0F3F8 transparent;
+}
+
+.data-table .table-row-cell:odd {
+    -fx-background-color: #FAFBFE;
+}
+
+.data-table .table-row-cell:selected {
+    -fx-background-color: #DBEAFE;
+}
+
+.data-table .table-row-cell:hover {
+    -fx-background-color: #EEF4FF;
+}
+
+.table-placeholder {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6B7A99;
+}
+
+.button {
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 7;
+    -fx-border-radius: 7;
+    -fx-padding: 9 16 9 16;
+}
+
+.btn-primary {
+    -fx-background-color: #1565C0;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+.btn-primary:hover   { -fx-background-color: #1976D2; }
+.btn-primary:pressed { -fx-background-color: #0D47A1; }
+
+.btn-warning {
+    -fx-background-color: #F59E0B;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+.btn-warning:hover   { -fx-background-color: #FBBF24; }
+.btn-warning:pressed { -fx-background-color: #D97706; }
+
+.btn-danger {
+    -fx-background-color: #DC2626;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+.btn-danger:hover   { -fx-background-color: #EF4444; }
+.btn-danger:pressed { -fx-background-color: #B91C1C; }
+
+.btn-secondary {
+    -fx-background-color: #F5F7FA;
+    -fx-text-fill: #1A2340;
+    -fx-border-color: #DDE3ED;
+    -fx-border-width: 1.5;
+}
+.btn-secondary:hover   { -fx-background-color: #E8EDF7; }
+.btn-secondary:pressed { -fx-background-color: #DDE3ED; }
+
+.date-picker > .text-field {
+    -fx-background-color: #F5F7FA;
+    -fx-padding: 8 10 8 10;
+}
+
+.combo-box {
+    -fx-background-color: #F5F7FA;
+    -fx-background-radius: 6;
+    -fx-border-color: #DDE3ED;
+    -fx-border-radius: 6;
+    -fx-border-width: 1.5;
+    -fx-padding: 4 8 4 8;
+    -fx-font-size: 13px;
+}
+
+.combo-box:focused {
+    -fx-border-color: #1565C0;
+}
+
+.moyenne-card {
+    -fx-background-color: #EEF2FB;
+    -fx-background-radius: 10;
+    -fx-border-color: #C5D6F5;
+    -fx-border-radius: 10;
+    -fx-border-width: 1.5;
+}
+
+.moyenne-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6B7A99;
+    -fx-font-weight: bold;
+}
+
+.moyenne-value {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1565C0;
+}
+
+.app-footer {
+    -fx-background-color: #1A2340;
+}
+
+.footer-text {
+    -fx-font-size: 11px;
+    -fx-text-fill: rgba(255,255,255,0.55);
+}
+
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #C5D6F5;
+    -fx-background-radius: 10;
+}
+.scroll-bar:vertical .track,
+.scroll-bar:horizontal .track {
+    -fx-background-color: transparent;
+}
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 2;
+}
+
+.separator .line {
+    -fx-border-color: #DDE3ED;
+    -fx-border-width: 1;
+}
