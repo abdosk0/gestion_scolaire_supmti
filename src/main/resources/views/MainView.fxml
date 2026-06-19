@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.MainController"
+            styleClass="root-pane">
+
+    <top>
+        <VBox styleClass="app-header">
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <padding><Insets top="18" right="30" bottom="18" left="30"/></padding>
+                <Label text="🎓" style="-fx-font-size:30;"/>
+                <VBox>
+                    <Label text="Gestion Scolaire" styleClass="header-title"/>
+                    <Label text="SUPMTI – Module Programmation Java" styleClass="header-subtitle"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <HBox spacing="20" alignment="CENTER_RIGHT">
+                    <VBox alignment="CENTER" styleClass="stat-card">
+                        <Label text="Étudiants" styleClass="stat-label"/>
+                        <Label fx:id="lblNbEtudiants" text="0" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox alignment="CENTER" styleClass="stat-card">
+                        <Label text="Cours" styleClass="stat-label"/>
+                        <Label fx:id="lblNbCours" text="0" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox alignment="CENTER" styleClass="stat-card">
+                        <Label text="Notes" styleClass="stat-label"/>
+                        <Label fx:id="lblNbNotes" text="0" styleClass="stat-value"/>
+                    </VBox>
+                </HBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" styleClass="main-tab-pane">
+            <Tab text="👤  Étudiants">
+                <fx:include fx:id="etudiantView" source="EtudiantView.fxml"/>
+            </Tab>
+            <Tab text="📚  Cours">
+                <fx:include fx:id="coursView" source="CoursView.fxml"/>
+            </Tab>
+            <Tab text="📝  Notes">
+                <fx:include fx:id="noteView" source="NoteView.fxml"/>
+            </Tab>
+        </TabPane>
+    </center>
+
+    <bottom>
+        <HBox styleClass="app-footer" alignment="CENTER_LEFT">
+            <padding><Insets top="8" right="20" bottom="8" left="20"/></padding>
+            <Label text="Pr. Soufiane HAMIDA  •  Année universitaire 2025–2026  •  SUPMTI Rabat"
+                   styleClass="footer-text"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

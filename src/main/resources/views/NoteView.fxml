@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<SplitPane dividerPositions="0.60" xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="controllers.NoteController"
+           styleClass="content-split">
+
+    <!-- ════ GAUCHE : Tableau ════ -->
+    <VBox spacing="10" styleClass="panel-left">
+        <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+        <Label text="Relevé de notes" styleClass="panel-title"/>
+
+        <TableView fx:id="tableNotes" VBox.vgrow="ALWAYS" styleClass="data-table">
+            <columns>
+                <TableColumn fx:id="colId"       text="ID"        prefWidth="50"  style="-fx-alignment:CENTER;"/>
+                <TableColumn fx:id="colEtudiant" text="Étudiant"  prefWidth="180"/>
+                <TableColumn fx:id="colCours"    text="Code"      prefWidth="90"/>
+                <TableColumn fx:id="colNote"     text="Note /20"  prefWidth="100" style="-fx-alignment:CENTER;"/>
+                <TableColumn fx:id="colMention"  text="Mention"   prefWidth="110"/>
+                <TableColumn fx:id="colDate"     text="Date"      prefWidth="110"/>
+            </columns>
+            <placeholder>
+                <Label text="Aucune note enregistrée." styleClass="table-placeholder"/>
+            </placeholder>
+        </TableView>
+    </VBox>
+
+    <!-- ════ DROITE : Formulaire ════ -->
+    <ScrollPane fitToWidth="true" fitToHeight="false" styleClass="form-scroll">
+    <VBox spacing="14" styleClass="panel-right">
+        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+        <Label text="Saisie de note" styleClass="form-title"/>
+        <Separator/>
+
+        <Label text="Étudiant *" styleClass="field-label"/>
+        <ComboBox fx:id="cmbEtudiant" promptText="Choisir un étudiant…"
+                  maxWidth="Infinity" styleClass="form-field"/>
+
+        <Label text="Cours *" styleClass="field-label"/>
+        <ComboBox fx:id="cmbCours" promptText="Choisir un cours…"
+                  maxWidth="Infinity" styleClass="form-field"/>
+
+        <Label text="Note (0 – 20) *" styleClass="field-label"/>
+        <TextField fx:id="txtNote" promptText="Ex: 14.5" styleClass="form-field"/>
+
+        <!-- Encart Moyenne -->
+        <VBox styleClass="moyenne-card" spacing="4">
+            <padding><Insets top="12" right="15" bottom="12" left="15"/></padding>
+            <Label text="Moyenne pondérée" styleClass="moyenne-label"/>
+            <Label fx:id="lblMoyenne" text="—" styleClass="moyenne-value"/>
+        </VBox>
+
+        <Separator/>
+
+        <Button text="💾  Enregistrer la note" onAction="#handleEnregistrer"
+                styleClass="btn-primary" maxWidth="Infinity"/>
+        <HBox spacing="10">
+            <Button text="✖  Supprimer"  onAction="#handleSupprimer"
+                    styleClass="btn-danger"    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <Button text="↺  Vider"      onAction="#handleVider"
+                    styleClass="btn-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+    </VBox>
+    </ScrollPane>
+</SplitPane>
